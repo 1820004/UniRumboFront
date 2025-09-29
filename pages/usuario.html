@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniRumbo • Usuario</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="page-user">
+  <!-- Layout compartido -->
+  <header id="app-header"></header>
+
+  <main>
+    <!-- Encabezado de bienvenida -->
+    <h2 class="welcome">Bienvenido, <span id="welcomeName">Nombre Cliente</span></h2>
+
+    <!-- Panel de información personal -->
+    <section class="profile-card">
+      <h3 class="panel-title">Información Personal</h3>
+
+      <form id="userForm" class="profile-grid">
+        <div class="form-field">
+          <label for="firstName">Nombre</label>
+          <input id="firstName" type="text" disabled />
+        </div>
+        <div class="form-field">
+          <label for="lastName">Apellido</label>
+          <input id="lastName" type="text" disabled />
+        </div>
+        <div class="form-field wide">
+          <label for="email">Correo Institucional</label>
+          <input id="email" type="email" disabled />
+        </div>
+        <div class="form-field">
+          <label for="phone">Número de contacto</label>
+          <input id="phone" type="text" disabled />
+        </div>
+        <div class="form-field">
+          <label for="role">Rol</label>
+          <input id="role" type="text" value="Cliente" disabled />
+        </div>
+        <div class="form-field">
+          <label for="campus">Sede</label>
+          <input id="campus" type="text" disabled />
+        </div>
+
+        <div class="form-actions">
+          <button id="btnEdit" type="button" class="btn btn--pill btn--slate">
+            <span>Editar</span>
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module">
+  import { mountLayout } from "/assets/js/components/layout.js";
+  mountLayout("usuario");
+  document.getElementById('welcomeName').textContent =
+    localStorage.getItem('userName') || 'Nombre Cliente';
+</script>
+
+
+  <script type="module" src="/assets/js/components/layout.js"></script>
+</body>
+</html>

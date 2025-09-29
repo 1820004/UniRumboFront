@@ -1,0 +1,109 @@
+/* =======================
+   HEADER (Topbar del layout)
+   Archivo: assets/css/header.css
+======================= */
+
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #cfdbe6;
+}
+
+.topbar__left{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.topbar__right{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Marca */
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b1015;
+  text-decoration: none;
+}
+.brand__logo{
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#0ea5e9,#22c55e);
+}
+.brand__name{
+  font-weight: 800;
+  font-size: 26px;
+}
+
+/* Navegación */
+.navlink{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #101418;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.navlink .ico{
+  font-size: 18px;
+  line-height: 1;
+}
+.navlink:hover{
+  background: #f2f5f8;
+  border-color: #e5edf4;
+}
+
+/* Activo tipo "pill" oscuro */
+.navlink.active{
+  background: #102830;
+  color: #eaf2f6;
+  border-color: #0f2631;
+}
+
+/* Lado derecho */
+.username{
+  color: #0b1015;
+  font-weight: 600;
+}
+
+/* Botón del header (scopeado para no afectar otros .btn del sitio) */
+.topbar .btn{
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+.topbar .btn--pill{
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+.topbar .btn--dark{
+  background: #102830;
+  color: #eaf2f6;
+}
+.topbar .btn--dark:hover{
+  opacity: .92;
+}
+
+/* Responsivo básico */
+@media (max-width: 720px){
+  .brand__name{ font-size: 22px; }
+  .topbar__left{ gap: 12px; }
+  .navlink{ padding: 8px 12px; }
+}

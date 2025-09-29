@@ -1,0 +1,20 @@
+.user-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.user-table th, .user-table td{
+  padding: 10px;
+  border-bottom: 1px solid #d7e5ee;
+  text-align: left;
+}
+
+.user-table th{
+  background: #eef5fa;
+  font-weight: 700;
+}
+
+.user-table tr:hover{
+  background: #f3f8fb;
+}

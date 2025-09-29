@@ -1,0 +1,130 @@
+/* =======================
+   Variables de diseño
+   Cambia colores/medidas aquí y se reflejarán en todo
+======================= */
+:root{
+  --bg: #24333b;           /* color base detrás del mapa (oscuro) */
+  --fg: #0b1015;           /* texto en tarjeta */
+  --glass: rgba(255,255,255,.75); /* fondo de la tarjeta (vidrio) */
+  --glass-border: rgba(255,255,255,.35); /* borde suave de la tarjeta */
+  --input-bg: #ffffff;     /* fondo de inputs */
+  --input-border: #d7dee6; /* borde de inputs */
+  --primary: #0f2631;      /* color de botón principal (azul muy oscuro) */
+  --primary-hover: #123041;
+  --btn-text: #ffffff;
+  --radius-card: 16px;     /* redondeo de tarjeta (tu mockup ~16px) */
+  --radius-input: 12px;    /* redondeo de inputs */
+  --radius-btn: 12px;      /* redondeo de botones */
+  --shadow: 0 20px 50px rgba(0,0,0,.45); /* sombra de tarjeta */
+  --card-width: 540px;     /* ancho aprox */
+}
+
+/* Reset básico */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+}
+
+
+.hero{
+  min-height: 100vh; 
+  display: grid;
+  place-items: center;
+  padding: 20px;
+
+  background: 
+    linear-gradient(0deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
+    url(../img/fondo.png);
+
+  background-attachment: fixed; /* hace que la imagen quede fija */
+}
+
+
+/* =======================
+   Tarjeta de login (glass)
+   - Fondo translúcido
+   - Borde y sombra suaves
+======================= */
+.login-card{
+  width: min(450px, 94vw);
+  padding: 100px 30px 22px;
+  background: var(--glass);
+  color: var(--fg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(1px); /* efecto vidrio */
+  padding-top: 22px; 
+}
+
+/* Título interno de la tarjeta (negrita centrada) */
+.card-title{
+  margin: 0 0 22px;
+  text-align: center;
+  font-weight: 650;
+  font-size: 25px;
+}
+
+/* =======================
+   Formulario
+======================= */
+.login-form{
+  display: grid;
+  gap: 19px;
+}
+
+/* Cada campo (label + input) */
+.field{
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+  color: #1f2a33; /* texto de etiquetas */
+}
+
+/* Caja de entrada */
+.field input{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: #0b0f13;
+  outline: none;
+}
+
+/* =======================
+   Botones (stack uno sobre otro)
+======================= */
+.actions{
+  display: grid;
+  gap: 15px;          /* separa "Ingresar" de "Registrar" */
+  margin-top: 7px;
+}
+
+.btn{
+  appearance: none;
+  border: 0;
+  border-radius: var(--radius-btn);
+  padding: 15px 10px;
+  cursor: pointer;
+  background: #1f2a33; /* botón secundario (gris oscuro) */
+  color: #eaf2f6;
+  font-weight: 400;
+  width: 240px;   /* ancho fijo */
+  margin: 0 auto; 
+}
+
+.btn.primary{
+  background: var(--primary);  /* botón principal (como tu mockup) */
+  color: var(--btn-text);
+}
+
+.btn:hover{ opacity: .94; }
+.btn.primary:hover{ background: var(--primary-hover); 
+}
+
+
+

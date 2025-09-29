@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniRumbo • Inicio</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="page-home">
+  <!-- Layout compartido -->
+  <header id="app-header"></header>
+
+  <main class="home-wrap">
+    <h2 class="welcome">Bienvenido, <span id="welcomeName">Nombre Cliente</span></h2>
+
+    <!-- Tabs tipo “segmentado” como tu mockup -->
+    <div class="segmented">
+      <button class="seg-btn active" data-tab="route">Servicio de Ruta</button>
+      <button class="seg-btn" data-tab="housing">Servicio de Alojamiento</button>
+    </div>
+
+    <!-- Contenido de pestañas -->
+    <section id="route" class="tab-pane active">
+      <div class="cards-2col">
+        <!-- Card 1 -->
+        <article class="service-card">
+          <div class="head">🚗 <span class="title">Ruta - Universidad</span></div>
+          <div class="meta">Conductor: Nombre</div>
+          <ul class="list">
+            <li>📍 <span>Origen: Centro de la ciudad</span></li>
+            <li>📍 <span>Destino: Campus Principal</span></li>
+            <li>🚘 <span>Carro</span></li>
+            <li>👥 <span>12 cupos disponibles</span></li>
+            <li>🕒 <span>Salida: 07:00 AM - Regreso: 06:00 PM</span></li>
+            <li>💲 <span>Precio: $8000</span></li>
+          </ul>
+          <div class="actions">
+            <button class="btn btn--light">Ver detalles</button>
+            <button class="btn btn--dark">Aplicar</button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="service-card">
+          <div class="head">🚗 <span class="title">Ruta - Universidad</span></div>
+          <div class="meta">Conductor: Nombre</div>
+          <ul class="list">
+            <li>📍 <span>Origen: Zona Norte</span></li>
+            <li>📍 <span>Destino: Campus Norte</span></li>
+            <li>🚘 <span>Carro</span></li>
+            <li>👥 <span>20 cupos disponibles</span></li>
+            <li>🕒 <span>Salida: 06:30 AM - Regreso: 05:30 PM</span></li>
+            <li>💲 <span>Precio: $10000</span></li>
+          </ul>
+          <div class="actions">
+            <button class="btn btn--light">Ver detalles</button>
+            <button class="btn btn--dark">Aplicar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="housing" class="tab-pane">
+      <div class="cards-2col">
+        <!-- aquí irá tu alojamiento -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Conexión con el layout + tabs -->
+   <script type="module">
+  import { mountLayout } from "/assets/js/components/layout.js";
+  mountLayout("inicio");
+  document.getElementById('welcomeName').textContent =
+    localStorage.getItem('userName') || 'Nombre Cliente';
+</script>
+
+
+  <script type="module" src="/assets/js/components/layout.js"></script>
+</body>
+</html>

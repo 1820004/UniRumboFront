@@ -1,0 +1,473 @@
+/* =======================
+   Variables de diseño
+   Cambia colores/medidas aquí y se reflejarán en todo
+======================= */
+:root{
+  --bg: #24333b;           /* color base detrás del mapa (oscuro) */
+  --fg: #0b1015;           /* texto en tarjeta */
+  --glass: rgba(255,255,255,.75); /* fondo de la tarjeta (vidrio) */
+  --glass-border: rgba(255,255,255,.35); /* borde suave de la tarjeta */
+  --input-bg: #ffffff;     /* fondo de inputs */
+  --input-border: #d7dee6; /* borde de inputs */
+  --primary: #0f2631;      /* color de botón principal (azul muy oscuro) */
+  --primary-hover: #123041;
+  --btn-text: #ffffff;
+  --radius-card: 16px;     /* redondeo de tarjeta (tu mockup ~16px) */
+  --radius-input: 12px;    /* redondeo de inputs */
+  --radius-btn: 12px;      /* redondeo de botones */
+  --shadow: 0 20px 50px rgba(0,0,0,.45); /* sombra de tarjeta */
+  --card-width: 540px;     /* ancho aprox */
+}
+
+/* Reset básico */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+}
+
+
+.hero{
+  min-height: 100vh; 
+  display: grid;
+  place-items: center;
+  padding: 20px;
+
+  background: 
+    linear-gradient(0deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
+    url(../img/fondo.png);
+
+  background-attachment: fixed; /* hace que la imagen quede fija */
+}
+
+
+/* =======================
+   Tarjeta de login (glass)
+   - Fondo translúcido
+   - Borde y sombra suaves
+======================= */
+.login-card{
+  width: min(450px, 94vw);
+  padding: 100px 30px 22px;
+  background: var(--glass);
+  color: var(--fg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(1px); /* efecto vidrio */
+  padding-top: 22px; 
+}
+
+/* Título interno de la tarjeta (negrita centrada) */
+.card-title{
+  margin: 0 0 22px;
+  text-align: center;
+  font-weight: 650;
+  font-size: 25px;
+}
+
+/* =======================
+   Formulario
+======================= */
+.login-form{
+  display: grid;
+  gap: 19px;
+}
+
+/* Cada campo (label + input) */
+.field{
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+  color: #1f2a33; /* texto de etiquetas */
+}
+
+/* Caja de entrada */
+.field input{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: #0b0f13;
+  outline: none;
+}
+
+/* =======================
+   Botones (stack uno sobre otro)
+======================= */
+.actions{
+  display: grid;
+  gap: 15px;          /* separa "Ingresar" de "Registrar" */
+  margin-top: 7px;
+}
+
+.btn{
+  appearance: none;
+  border: 0;
+  border-radius: var(--radius-btn);
+  padding: 15px 10px;
+  cursor: pointer;
+  background: #1f2a33; /* botón secundario (gris oscuro) */
+  color: #eaf2f6;
+  font-weight: 400;
+  width: 240px;   /* ancho fijo */
+  margin: 0 auto; 
+}
+
+.btn.primary{
+  background: var(--primary);  /* botón principal (como tu mockup) */
+  color: var(--btn-text);
+}
+
+.btn:hover{ opacity: .94; }
+.btn.primary:hover{ background: var(--primary-hover); 
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== Usuario (Información Personal) ===== */
+
+/* Encabezado de bienvenida */
+.page-user .welcome{
+  color: #dfeaf1;               /* texto claro como tu mockup */
+  font-weight: 700;
+  margin: 18px 0 14px;
+}
+
+/* Fondo degradado de la zona de contenido */
+.user-sheet{
+  background: linear-gradient(90deg, #cfe5ef 0%, #d7e9f5 100%);
+  border: 1px solid #cfe0ec;
+  border-radius: 14px;
+  padding: 28px 14px 40px;
+}
+
+/* Panel central con bordes muy redondeados */
+.profile-card{
+  max-width: 980px;
+  margin: 0 auto;
+  background: #edf6fc;
+  border: 1px solid #d8e7f3;
+  border-radius: 32px;          /* grandes como en tu diseño */
+  padding: 28px 26px 26px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+}
+
+/* Título del panel */
+.panel-title{
+  margin: 0 0 16px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #10161a;
+}
+
+/* Grid de dos columnas con gaps generosos */
+.profile-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 34px;               /* fila x columna */
+  align-items: start;
+}
+
+/* Campos */
+.form-field{ display: grid; gap: 8px; }
+.form-field.wide{ grid-column: 1 / -1; } /* ocupa las dos columnas */
+.form-field label{
+  font-weight: 700;
+  color: #1b2a33;
+}
+.form-field input{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d7e5ee;
+  background: #ffffff;
+  color: #0b0f13;
+  border-radius: 18px;          /* inputs muy redondeados */
+  outline: none;
+}
+
+/* Barra de acciones a la derecha, debajo del grid */
+.form-actions{
+  grid-column: 2 / -1;          /* alinea a la derecha del panel */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* Botón “Editar” pill gris */
+.btn{ appearance: none; border: 0; cursor: pointer; font-weight: 700; }
+.btn--pill{ padding: 10px 16px; border-radius: 12px; }
+.btn--slate{
+  background: #65727a;
+  color: #eef6fb;
+}
+.btn--slate{
+  background: #162a2f; /* azul */
+  color: #ffffff;
+}
+.btn--slate:hover{
+  background: #2d6775; /* azul más oscuro al pasar el mouse */
+}
+
+
+/* Responsive: en móviles, una sola columna */
+@media (max-width: 780px){
+  .profile-grid{ grid-template-columns: 1fr; }
+  .form-actions{ grid-column: 1 / -1; }
+}
+
+/* ===== Fondo general de la página Usuario ===== */
+.page-user{
+  min-height: 100vh; /* siempre toda la pantalla */
+  background: linear-gradient(135deg, #b3d4f5 0%, #e2f1fa 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* El contenedor principal (donde está la info del usuario) */
+.page-user main{
+  flex: 1; /* ocupa todo el espacio restante bajo el header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+}
+
+
+
+/* ====== TOPBAR (layout) ====== */
+.topbar{
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #cfdbe6;
+}
+.topbar__left{ display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.topbar__right{ display: flex; align-items: center; gap: 16px; }
+
+.brand{ display: inline-flex; align-items: center; gap: 10px; color: #0b1015; text-decoration: none; }
+.brand__logo{ width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg,#0ea5e9,#22c55e); }
+.brand__name{ font-weight: 800; font-size: 26px; }
+
+.navlink{
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: 12px;
+  color: #101418; text-decoration: none; border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease;
+}
+.navlink .ico{ font-size: 18px; line-height: 1; }
+.navlink:hover{ background: #f2f5f8; border-color: #e5edf4; }
+
+.navlink.active{
+  background: #102830;
+  color: #eaf2f6;
+  border-color: #0f2631;
+}
+
+.username{ color: #0b1015; font-weight: 600; }
+
+.btn{ appearance: none; border: 0; cursor: pointer; font-weight: 700; }
+.btn--pill{ padding: 10px 14px; border-radius: 12px; }
+.btn--dark{ background: #102830; color: #eaf2f6; }
+.btn--dark:hover{ opacity: .92; }
+
+
+
+
+
+/* ====== HOME (Inicio) ====== */
+.page-home{
+  min-height: 100vh;
+  background: linear-gradient(90deg,#cfe5ef 0%, #d7e9f5 100%);
+  display:flex; flex-direction:column;
+}
+.home-wrap{ width: min(1200px, 92vw); margin: 18px auto 40px; }
+
+.home-wrap .welcome{
+  color:#dfeaf1; font-weight:700; margin: 10px 0 18px;
+}
+
+/* Tabs */
+.home-tabs{
+  display:flex; gap:14px; align-items:center;
+  margin: 6px 0 16px;
+}
+.tab-btn{
+  flex:1;
+  padding:10px 14px;
+  border-radius: 18px;
+  border:1px solid #b9cddd;
+  background:#c1d5e3;
+  color:#1a2a33; font-weight:800; font-size:20px;
+  cursor:pointer;
+}
+.tab-btn.active{
+  background:#ffffff;
+  border-color:#e3edf5;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.05);
+}
+
+/* Grid de tarjetas */
+.cards-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* Tarjeta de servicio */
+.service-card{
+  background: linear-gradient(90deg,#edf6fc 0%, #f4fafe 100%);
+  border:1px solid #d8e7f3;
+  border-radius: 26px;
+  padding: 18px 18px 16px;
+}
+.service-card .head{
+  display:flex; align-items:center; gap:12px;
+  font-size: 22px; font-weight:800; color:#10161a;
+  margin-bottom:6px;
+}
+.service-card .meta{
+  color:#8696a0; font-weight:700; margin-bottom:12px;
+}
+.service-card ul{
+  list-style:none; margin:0; padding:0; color:#17242c;
+}
+.service-card li{ margin: 8px 0; display:flex; gap:8px; align-items:flex-start; }
+
+/* Botones de acción */
+.card-actions{
+  display:flex; gap:12px; margin-top:14px;
+}
+.btn{
+  appearance:none; border:0; cursor:pointer; font-weight:700;
+  border-radius:14px; padding:10px 14px;
+}
+.btn--light{ background:#ffffff; color:#0e1720; border:1px solid #d9e6f2; }
+.btn--dark{ background:#65727a; color:#eef6fb; }
+.btn--dark:hover{ filter:brightness(1.05); }
+
+/* Pestañas (ocultar/mostrar) */
+.tab-pane{ display:none; }
+.tab-pane.active{ display:grid; }
+
+@media (max-width: 960px){
+  .cards-grid{ grid-template-columns: 1fr; }
+}
+
+/* ====== HOME ====== */
+.page-home{
+  min-height:100vh;
+  background: linear-gradient(90deg,#cfe5ef 0%, #d7e9f5 100%);
+  display:flex; flex-direction:column;
+}
+.home-wrap{
+  width:min(1220px, 94vw);
+  margin:18px auto 40px;
+}
+.home-wrap .welcome{
+  color:#dfeaf1; font-weight:700; margin:14px 0 16px;
+}
+
+/* Segmentado (tabs) */
+.segmented{
+
+  width: min(100000px, 9200vw);   /* controla el ancho de toda la barrita */
+  margin: 12px auto 20px;
+
+  display:flex; gap:0;
+  background:#aeb7bd;           /* barra gris como mockup */
+  border-radius:20px;
+  border:1px solid #9daab4;
+  padding:6px;
+  overflow:hidden;
+  max-width:1020px;
+  justify-content: center;   /* 👉 centra horizontalmente */
+  gap: 14px;                 /* 👉 espacio entre los botones */
+  margin: 20px 0; 
+}
+/* Botones de tabs */
+.seg-btn {
+  flex: 1;
+  cursor: pointer;
+  border: 0;
+  background: #d9e3eb; /* gris claro inactivo */
+  color: #2c3e50;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.seg-btn:hover {
+  background: #c5d0da;
+}
+
+.seg-btn.active {
+  background: #ffffff; /* pestaña activa en blanco */
+  color: #0d1a26;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Ocultar/mostrar contenido */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+
+/* Grid de 2 columnas */
+.cards-2col{
+  display:grid; grid-template-columns: 1fr 1fr; gap:26px; margin-top:22px;
+}
+
+/* Card */
+.service-card{
+  background: linear-gradient(90deg,#edf6fc 0%, #f4fafe 100%);
+  border:1px solid #d8e7f3;
+  border-radius:28px;
+  padding:20px 20px 18px;
+}
+.service-card .head{
+  display:flex; align-items:center; gap:10px;
+  font-size:24px; font-weight:800; color:#10161a; margin-bottom:6px;
+}
+.service-card .meta{ color:#8b99a3; font-weight:700; margin-bottom:12px; }
+.service-card .list{ list-style:none; margin:0; padding:0; color:#17242c; }
+.service-card .list li{ display:flex; gap:8px; margin:8px 0; }
+
+/* Acciones */
+.actions{ display:flex; gap:12px; margin-top:14px; }
+.btn{
+  appearance:none; border:0; cursor:pointer; font-weight:700;
+  border-radius:14px; padding:10px 14px;
+}
+.btn--light{ background:#ffffff; color:#0e1720; border:1px solid #d9e6f2; }
+.btn--dark{ background:#65727a; color:#eef6fb; }
+.btn--dark:hover{ filter:brightness(1.05); }
+
+@media (max-width: 1000px){ .cards-2col{ grid-template-columns:1fr; } }
+
+
+
+.seg-btn { 
+  flex: 1; cursor: pointer; border: 0; 
+  background: #d9e3eb; color: #2c3e50;
+  padding: 12px 18px; font-weight: 700; font-size: 18px;
+  border-radius: 12px; transition: background .2s, color .2s;
+}
+.seg-btn:hover { background: #c5d0da; }
+.seg-btn.active { background: #fff; color: #0d1a26; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
